@@ -11,6 +11,23 @@ define(function() {
       //
       // otherwise the function should return the number, or false if no number
       // was provided or the value provided is not a number
+      if (!num || typeof num !== 'number') {
+        return false;
+      }
+      var ret = {
+        '3': 'fizz',
+        '5': 'buzz'
+      };
+      if (num % 3 === 0 && num % 5 === 0) {
+        return ret['3'] + ret['5'];
+      }
+      if (num % 3 === 0) {
+        return ret['3'];
+      }
+      if (num % 5 === 0) {
+        return ret['5'];
+      }
+      return num;
     }
   };
 });
