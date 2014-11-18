@@ -11,13 +11,14 @@ define(function() {
     },
 
     iterate : function(obj) {
-      var propNames = Object.getOwnPropertyNames(obj);
       var ret = [];
-      for (var i = 0; i < propNames.length; i++) {
-        var propName = propNames[i];
-        var propValue = obj[propName];
-        ret.push(propName + ': ' + propValue);
+
+      for (var prop in obj) {
+        if (obj.hasOwnProperty(prop)) {
+          ret.push(prop + ': ' + obj[prop]);
+        }
       }
+
       return ret;
     }
   };

@@ -3,7 +3,17 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function() {
   return {
     indexOf : function(arr, item) {
-      return arr.indexOf(item);
+      /*
+      if (Array.prototype.indexOf) { return arr.indexOf(item); }
+      */
+
+      for (var i = 0; i < arr.length; i++) {
+        if (arr[i] === item) {
+          return i;
+        }
+      }
+
+      return -1;
     },
 
     sum : function(arr) {
@@ -31,7 +41,6 @@ define(function() {
           i--;
         }
       }
-      console.log(arr);
       return arr;
     },
 
@@ -41,7 +50,8 @@ define(function() {
     },
 
     truncate : function(arr) {
-      arr.splice(-1);
+      // arr.splice(-1);
+      arr.pop();
       return arr;
     },
 
